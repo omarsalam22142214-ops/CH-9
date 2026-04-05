@@ -60,6 +60,20 @@
         }
         .adblock-btn.disabled { background-color: #c0392b; }
 
+        /* أزرار التنقل السابقة والتالية */
+        .nav-btn {
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            font-size: 13px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .nav-btn:hover { background-color: #732d91; }
+
         /* شريط القنوات قابل للتمرير لو القنوات كترت */
         .tabs-container {
             display: flex;
@@ -67,6 +81,7 @@
             overflow-x: auto;
             white-space: nowrap;
             padding-bottom: 5px;
+            scroll-behavior: smooth; /* عشان السكرول يكون ناعم */
         }
         
         /* تجميل شكل السكرول بار بتاع القنوات */
@@ -200,8 +215,14 @@
 
     <div class="player-header">
         <div class="top-controls">
-            <button class="admin-btn" onclick="openModal()">⚙️ التعديل</button>
-            <button id="adblockBtn" class="adblock-btn" onclick="toggleAdBlock()">🛡️ المانع (شغال)</button>
+            <div style="display: flex; gap: 10px;">
+                <button class="admin-btn" onclick="openModal()">⚙️ التعديل</button>
+                <button id="adblockBtn" class="adblock-btn" onclick="toggleAdBlock()">🛡️ المانع (شغال)</button>
+            </div>
+            <div style="display: flex; gap: 5px;">
+                <button class="nav-btn" onclick="playPrevStream()">السابق ⏪</button>
+                <button class="nav-btn" onclick="playNextStream()">⏩ التالي</button>
+            </div>
         </div>
 
         <div class="tabs-container" id="mainTabs">
@@ -408,7 +429,54 @@
                 });
             }, 100);
         }
-    </script>
 
+        // تشغيل السيرفر التالي
+        function playNextStream() {
+            let activeBtn = document.querySelector('.tab-btn.active');
+            let nextBtn;
+            if (activeBtn) {
+                nextBtn = activeBtn.nextElementSibling;
+            } else {
+                nextBtn = document.querySelector('.tab-btn'); // لو مفيش حاجة شغالة، يشغل الأول
+            }
+            
+            if (nextBtn && nextBtn.classList.contains('tab-btn')) {
+                playStream(nextBtn);
+                nextBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            } else if (activeBtn) {
+                // لو وصلنا للآخر نرجع للأول
+                let firstBtn = document.querySelector('.tab-btn');
+                if(firstBtn) {
+                    playStream(firstBtn);
+                    firstBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            }
+        }
+
+        // تشغيل السيرفر السابق
+        function playPrevStream() {
+            let activeBtn = document.querySelector('.tab-btn.active');
+            let prevBtn;
+            if (activeBtn) {
+                prevBtn = activeBtn.previousElementSibling;
+            } else {
+                let allBtns = document.querySelectorAll('.tab-btn');
+                if(allBtns.length > 0) prevBtn = allBtns[allBtns.length - 1]; // لو مفيش حاجة شغالة، يشغل الأخير
+            }
+            
+            if (prevBtn && prevBtn.classList.contains('tab-btn')) {
+                playStream(prevBtn);
+                prevBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            } else if (activeBtn) {
+                // لو وصلنا للأول نروح للآخر
+                let allBtns = document.querySelectorAll('.tab-btn');
+                if(allBtns.length > 0) {
+                    let lastBtn = allBtns[allBtns.length - 1];
+                    playStream(lastBtn);
+                    lastBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            }
+        }
+    </script>
 
 </body></html>
