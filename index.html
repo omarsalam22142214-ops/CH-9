@@ -180,7 +180,7 @@
         .download-btn { background-color: #2980b9; color: white; flex: 1; padding: 10px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
         .copy-btn { background-color: #8e44ad; color: white; flex: 1; padding: 10px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
     </style>
-</head>
+<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
 <body>
 
     <div class="player-header">
@@ -224,17 +224,17 @@
             
             <div class="form-group">
                 <label>اختار الزرار للتعديل أو الحذف:</label>
-                <select id="buttonSelect" onchange="loadButtonData()"><option value="btn1">ALWAN 1</option><option value="btn2">ALWAN 2</option><option value="btn3">ALWAN 3</option><option value="btn4">ALWAN 4</option><option value="btn5">ALWAN 5</option><option value="btn6">ALWAN 6</option><option value="btn7">ALWAN 7</option><option value="btn8">ALWAN 8</option><option value="btn9">ALWAN 9</option><option value="btn10">ALWAN 10</option><option value="btn11">ALWAN 11</option><option value="btn12">ALWAN 12</option><option value="btn_new_1775361376263">1</option><option value="btn_new_1775361411665">2</option><option value="btn_new_1775361434207">3</option><option value="btn_new_1775361465197">3</option></select>
+                <select id="buttonSelect" onchange="loadButtonData()" data-ddg-inputtype="unknown"><option value="btn1">ALWAN 1</option><option value="btn2">ALWAN 2</option><option value="btn3">ALWAN 3</option><option value="btn4">ALWAN 4</option><option value="btn5">ALWAN 5</option><option value="btn6">ALWAN 6</option><option value="btn7">ALWAN 7</option><option value="btn8">ALWAN 8</option><option value="btn9">ALWAN 9</option><option value="btn10">ALWAN 10</option><option value="btn11">ALWAN 11</option><option value="btn12">ALWAN 12</option><option value="btn_new_1775361376263">1</option><option value="btn_new_1775361411665">2</option><option value="btn_new_1775361434207">3</option><option value="btn_new_1775361465197">3</option></select>
             </div>
 
             <div class="form-group">
                 <label>الاسم الجديد:</label>
-                <input type="text" id="editName">
+                <input type="text" id="editName" data-ddg-inputtype="unknown">
             </div>
 
             <div class="form-group">
                 <label>اللينك الجديد:</label>
-                <input type="text" id="editLink">
+                <input type="text" id="editLink" data-ddg-inputtype="unknown">
             </div>
 
             <div class="modal-buttons">
@@ -459,4 +459,6 @@
             videoWrapper.classList.toggle('rotated');
         }
     </script>
+
+
 </body></html>
