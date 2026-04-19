@@ -53,6 +53,7 @@
             display: flex;
             gap: 5px;
             flex-wrap: wrap; 
+            align-items: center;
         }
 
         .nav-btn, .rotate-btn, .adblock-btn, .close-top-btn, .external-top-btn, .copy-top-btn {
@@ -64,6 +65,27 @@
             cursor: pointer;
             font-weight: bold;
             transition: 0.3s;
+        }
+
+        /* ستايل مدخل الثواني الجديد */
+        .interval-input-group {
+            display: flex;
+            align-items: center;
+            background: #2c3e50;
+            padding: 4px 8px;
+            border-radius: 4px;
+            gap: 5px;
+            border: 1px solid #34495e;
+        }
+        .interval-input-group label { font-size: 12px; font-weight: bold; }
+        .interval-input-group input { 
+            width: 45px; 
+            background: #000; 
+            color: #2ecc71; 
+            border: 1px solid #555; 
+            border-radius: 3px; 
+            text-align: center;
+            font-weight: bold;
         }
 
         .nav-btn { background-color: #3498db; }
@@ -291,6 +313,11 @@
             </div>
             
             <div class="nav-buttons">
+                <div class="interval-input-group">
+                    <label>المدة (5-60ث):</label>
+                    <input type="number" id="autoSwitchIntervalInput" value="20" min="5" max="60" onchange="updateAutoSwitchInterval()">
+                </div>
+
                 <button id="closeVid" class="close-top-btn" onclick="closePlayer()" style="display: none;">إغلاق ✖</button>
                 <button id="externalVid" class="external-top-btn" onclick="openExternal()" style="display: none;">خارجي ↗</button>
                 <button id="copyLinkBtn" class="copy-top-btn" onclick="copyCurrentLink()" style="display: none;">نسخ الرابط 🔗</button>
@@ -299,13 +326,38 @@
 
                 <button class="nav-btn" onclick="prevStream()">الســـــــــــــــــــابق ⏮️</button>
                 <button class="nav-btn" onclick="nextStream()">التـــــــــــــــــــــــــــــــــــــــــــــالي ⏭️</button>
-                <button class="rotate-btn" onclick="toggleRotation()">تدوير 🔄</button><button id="adblockBtn" class="adblock-btn disabled" onclick="toggleAdBlock()">🛡️ المانع (مقفول)</button>
+                <button class="rotate-btn" onclick="toggleRotation()">تدوير 🔄</button>
+                <button id="adblockBtn" class="adblock-btn disabled" onclick="toggleAdBlock()">🛡️ المانع (مقفول)</button>
             </div>
 
             <button id="adblockBtn" class="adblock-btn" onclick="toggleAdBlock()">🛡️ المانع (شغال)</button>
         </div>
 
-        <div class="tabs-container" id="mainTabs"><button id="btn1" class="tab-btn" data-link="https://a4.kora-plus.dad/watch/alwan1.m3u8" onclick="playStream(this)">ALWAN 1</button>
+        <div class="tabs-container" id="mainTabs"><button id="btn_new_1776614394915_0" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609178.ts" data-open="internal" onclick="playStream(this)">قناة جديدة   FHD  1</button>
+<button id="btn_new_1776614394915_1" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609177.ts" data-open="internal" onclick="playStream(this)">قناة جديدة   HD  2</button>
+<button id="btn_new_1776614394915_2" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609176.ts" data-open="internal" onclick="playStream(this)">قناة جديدة   SD  3</button>
+<button id="btn_new_1776614394915_3" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609175.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 4</button>
+<button id="btn_new_1776614394915_4" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609174.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 5</button>
+<button id="btn_new_1776614394915_5" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609173.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 6</button>
+<button id="btn_new_1776614394915_6" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609172.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 7</button>
+<button id="btn_new_1776614394915_7" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609171.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 8</button>
+<button id="btn_new_1776614394915_8" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609170.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 9</button>
+<button id="btn_new_1776614394915_9" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609169.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 10</button>
+<button id="btn_new_1776614394915_10" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609168.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 11</button>
+<button id="btn_new_1776614394915_11" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609167.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 12</button>
+<button id="btn_new_1776614394915_12" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609166.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 13</button>
+<button id="btn_new_1776614394915_13" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609165.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 14</button>
+<button id="btn_new_1776614394915_14" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609164.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 15</button>
+<button id="btn_new_1776614394915_15" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609163.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 16</button>
+<button id="btn_new_1776614394915_16" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609162.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 17</button>
+<button id="btn_new_1776614394915_17" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609161.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 18</button>
+<button id="btn_new_1776614394915_18" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609160.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 19</button>
+<button id="btn_new_1776614394915_19" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609159.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 20</button>
+<button id="btn_new_1776614394915_20" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609158.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 21</button>
+<button id="btn_new_1776614394915_21" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609157.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 22</button>
+<button id="btn_new_1776614394915_22" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609156.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 23</button>
+<button id="btn_new_1776614394915_23" class="tab-btn" data-link="http://scorpioniptv.com:2052/live/babatayoub/deyswmq/609155.ts" data-open="internal" onclick="playStream(this)">قناة جديدة 24</button>
+<button id="btn1" class="tab-btn" data-link="https://a4.kora-plus.dad/watch/alwan1.m3u8" onclick="playStream(this)">ALWAN 1</button>
 <button id="btn2" class="tab-btn" data-link="https://a4.kora-plus.dad/watch/alwan2.m3u8" onclick="playStream(this)">ALWAN 2</button>
 <button id="btn3" class="tab-btn" data-link="https://a4.kora-plus.dad/watch/alwan3.m3u8" onclick="playStream(this)">ALWAN 3</button>
 <button id="btn4" class="tab-btn" data-link="https://a4.kora-plus.dad/watch/alwan4.m3u8" onclick="playStream(this)">ALWAN 4</button>
@@ -321,7 +373,47 @@
 <button id="btn_new_1775361411665" class="tab-btn" data-link="https://vip.kora-top.zip/frame.php?ch=alwan2&amp;p=12&amp;token=f2e03746-d534-4990-8782-910eda4be98e&amp;kt=1775005126" onclick="playStream(this)">2</button>
 <button id="btn_new_1775361434207" class="tab-btn" data-link="https://vip.kora-top.zip/frame.php?ch=alwan3&amp;p=12&amp;token=b3ef8162-89c5-45a8-8e0a-fa3d699eeca2&amp;kt=1774977600" onclick="playStream(this)">3</button>
 <button id="btn_new_1775361465197" class="tab-btn" data-link="https://yalla.kora-top.zip/frame.php?ch=alwan3&amp;p=12&amp;token=f2e03746-d534-4990-8782-910eda4be98e&amp;kt=1775004930" onclick="playStream(this)">3</button>
-<button id="btn_new_1775665722230" class="tab-btn" data-link="https://vsys.kora-top.zip/frame.php?ch=alwan4&amp;p=12&amp;token=a060a5b6-7bbf-4feb-8419-fb84cc8bbfcc&amp;kt=1775665514" onclick="playStream(this)">4</button><button id="btn_new_1776485541380_0" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149582" data-open="internal" onclick="playStream(this)">alwan 1</button><button id="btn_new_1776485541380_1" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149584" data-open="internal" onclick="playStream(this)">alwan 2</button><button id="btn_new_1776485541380_2" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120808" data-open="internal" onclick="playStream(this)">alwan 3</button><button id="btn_new_1776485541380_3" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149583" data-open="internal" onclick="playStream(this)">alwan 4</button><button id="btn_new_1776485541380_4" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149586" data-open="internal" onclick="playStream(this)">alwan 5</button><button id="btn_new_1776485541380_5" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120809" data-open="internal" onclick="playStream(this)">alwan 6</button><button id="btn_new_1776485541380_6" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149585" data-open="internal" onclick="playStream(this)">alwan 7</button><button id="btn_new_1776485541380_7" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149588" data-open="internal" onclick="playStream(this)">alwan 8</button><button id="btn_new_1776485541380_8" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120810" data-open="internal" onclick="playStream(this)">alwan 9</button><button id="btn_new_1776485541380_9" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149587" data-open="internal" onclick="playStream(this)">alwan 10</button><button id="btn_new_1776485541380_10" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149590" data-open="internal" onclick="playStream(this)">alwan 11</button><button id="btn_new_1776485541380_11" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120811" data-open="internal" onclick="playStream(this)">alwan 12</button><button id="btn_new_1776485541380_12" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149589" data-open="internal" onclick="playStream(this)">alwan 13</button><button id="btn_new_1776485541380_13" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149592" data-open="internal" onclick="playStream(this)">alwan 14</button><button id="btn_new_1776485541380_14" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120812" data-open="internal" onclick="playStream(this)">alwan 15</button><button id="btn_new_1776485541380_15" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149591" data-open="internal" onclick="playStream(this)">alwan 16</button><button id="btn_new_1776485541380_16" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149594" data-open="internal" onclick="playStream(this)">alwan 17</button><button id="btn_new_1776485541380_17" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120813" data-open="internal" onclick="playStream(this)">alwan 18</button><button id="btn_new_1776485541380_18" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149593" data-open="internal" onclick="playStream(this)">alwan 19</button><button id="btn_new_1776485541380_19" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120531" data-open="internal" onclick="playStream(this)">alwan 20</button><button id="btn_new_1776485541380_20" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120532" data-open="internal" onclick="playStream(this)">alwan 21</button><button id="btn_new_1776485541380_21" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/66311" data-open="internal" onclick="playStream(this)">alwan 22</button><button id="btn_new_1776485541380_22" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120835" data-open="internal" onclick="playStream(this)">alwan 23</button><button id="btn_new_1776485541380_23" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120822" data-open="internal" onclick="playStream(this)">alwan 24</button><button id="btn_new_1776485541380_24" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120823" data-open="internal" onclick="playStream(this)">alwan 25</button><button id="btn_new_1776485541380_25" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120824" data-open="internal" onclick="playStream(this)">alwan 26</button><button id="btn_new_1776485541380_26" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120825" data-open="internal" onclick="playStream(this)">alwan 27</button><button id="btn_new_1776485541380_27" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120826" data-open="internal" onclick="playStream(this)">alwan 28</button><button id="btn_new_1776485541380_28" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120827" data-open="internal" onclick="playStream(this)">alwan 29</button><button id="btn_new_1776485541380_29" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120828" data-open="internal" onclick="playStream(this)">alwan 30</button><button id="btn_new_1776485541380_30" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120829" data-open="internal" onclick="playStream(this)">alwan 31</button><button id="btn_new_1776485541380_31" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120830" data-open="internal" onclick="playStream(this)">alwan 32</button><button id="btn_new_1776485541380_32" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120831" data-open="internal" onclick="playStream(this)">alwan 33</button><button id="btn_new_1776485541380_33" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120832" data-open="internal" onclick="playStream(this)">alwan 34</button><button id="btn_new_1776485541380_34" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120833" data-open="internal" onclick="playStream(this)">alwan 35</button><button id="btn_new_1776485541380_35" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120834" data-open="internal" onclick="playStream(this)">alwan 36</button><button id="btn_new_1776485541380_36" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120836" data-open="internal" onclick="playStream(this)">alwan 37</button><button id="btn_new_1776485541380_37" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/5821" data-open="internal" onclick="playStream(this)">alwan 38</button><button id="btn_new_1776485541380_38" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/35134" data-open="internal" onclick="playStream(this)">alwan 39</button></div>
+<button id="btn_new_1775665722230" class="tab-btn" data-link="https://vsys.kora-top.zip/frame.php?ch=alwan4&amp;p=12&amp;token=a060a5b6-7bbf-4feb-8419-fb84cc8bbfcc&amp;kt=1775665514" onclick="playStream(this)">4</button>
+<button id="btn_new_1776485541380_0" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149582" data-open="internal" onclick="playStream(this)">alwan 1</button>
+<button id="btn_new_1776485541380_1" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149584" data-open="internal" onclick="playStream(this)">alwan 2</button>
+<button id="btn_new_1776485541380_2" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120808" data-open="internal" onclick="playStream(this)">alwan 3</button>
+<button id="btn_new_1776485541380_3" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149583" data-open="internal" onclick="playStream(this)">alwan 4</button>
+<button id="btn_new_1776485541380_4" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149586" data-open="internal" onclick="playStream(this)">alwan 5</button>
+<button id="btn_new_1776485541380_5" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120809" data-open="internal" onclick="playStream(this)">alwan 6</button>
+<button id="btn_new_1776485541380_6" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149585" data-open="internal" onclick="playStream(this)">alwan 7</button>
+<button id="btn_new_1776485541380_7" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149588" data-open="internal" onclick="playStream(this)">alwan 8</button>
+<button id="btn_new_1776485541380_8" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120810" data-open="internal" onclick="playStream(this)">alwan 9</button>
+<button id="btn_new_1776485541380_9" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149587" data-open="internal" onclick="playStream(this)">alwan 10</button>
+<button id="btn_new_1776485541380_10" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149590" data-open="internal" onclick="playStream(this)">alwan 11</button>
+<button id="btn_new_1776485541380_11" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120811" data-open="internal" onclick="playStream(this)">alwan 12</button>
+<button id="btn_new_1776485541380_12" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149589" data-open="internal" onclick="playStream(this)">alwan 13</button>
+<button id="btn_new_1776485541380_13" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149592" data-open="internal" onclick="playStream(this)">alwan 14</button>
+<button id="btn_new_1776485541380_14" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120812" data-open="internal" onclick="playStream(this)">alwan 15</button>
+<button id="btn_new_1776485541380_15" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149591" data-open="internal" onclick="playStream(this)">alwan 16</button>
+<button id="btn_new_1776485541380_16" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149594" data-open="internal" onclick="playStream(this)">alwan 17</button>
+<button id="btn_new_1776485541380_17" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120813" data-open="internal" onclick="playStream(this)">alwan 18</button>
+<button id="btn_new_1776485541380_18" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/149593" data-open="internal" onclick="playStream(this)">alwan 19</button>
+<button id="btn_new_1776485541380_19" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120531" data-open="internal" onclick="playStream(this)">alwan 20</button>
+<button id="btn_new_1776485541380_20" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120532" data-open="internal" onclick="playStream(this)">alwan 21</button>
+<button id="btn_new_1776485541380_21" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/66311" data-open="internal" onclick="playStream(this)">alwan 22</button>
+<button id="btn_new_1776485541380_22" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120835" data-open="internal" onclick="playStream(this)">alwan 23</button>
+<button id="btn_new_1776485541380_23" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120822" data-open="internal" onclick="playStream(this)">alwan 24</button>
+<button id="btn_new_1776485541380_24" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120823" data-open="internal" onclick="playStream(this)">alwan 25</button>
+<button id="btn_new_1776485541380_25" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120824" data-open="internal" onclick="playStream(this)">alwan 26</button>
+<button id="btn_new_1776485541380_26" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120825" data-open="internal" onclick="playStream(this)">alwan 27</button>
+<button id="btn_new_1776485541380_27" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120826" data-open="internal" onclick="playStream(this)">alwan 28</button>
+<button id="btn_new_1776485541380_28" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120827" data-open="internal" onclick="playStream(this)">alwan 29</button>
+<button id="btn_new_1776485541380_29" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120828" data-open="internal" onclick="playStream(this)">alwan 30</button>
+<button id="btn_new_1776485541380_30" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120829" data-open="internal" onclick="playStream(this)">alwan 31</button>
+<button id="btn_new_1776485541380_31" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120830" data-open="internal" onclick="playStream(this)">alwan 32</button>
+<button id="btn_new_1776485541380_32" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120831" data-open="internal" onclick="playStream(this)">alwan 33</button>
+<button id="btn_new_1776485541380_33" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120832" data-open="internal" onclick="playStream(this)">alwan 34</button>
+<button id="btn_new_1776485541380_34" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120833" data-open="internal" onclick="playStream(this)">alwan 35</button>
+<button id="btn_new_1776485541380_35" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120834" data-open="internal" onclick="playStream(this)">alwan 36</button>
+<button id="btn_new_1776485541380_36" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120836" data-open="internal" onclick="playStream(this)">alwan 37</button>
+<button id="btn_new_1776485541380_37" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/5821" data-open="internal" onclick="playStream(this)">alwan 38</button>
+<button id="btn_new_1776485541380_38" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/35134" data-open="internal" onclick="playStream(this)">alwan 39</button>
+</div>
     </div>
 
     <div class="video-wrapper">
@@ -357,19 +449,19 @@
             <h3 style="margin-top:0">إعدادات البث المباشر</h3>
             <div class="form-group">
                 <label>اختار الزرار للتعديل أو الحذف:</label>
-                <select id="buttonSelect" onchange="loadButtonData()" data-ddg-inputtype="unknown"><option value="btn1">ALWAN 1</option><option value="btn2">ALWAN 2</option><option value="btn3">ALWAN 3</option><option value="btn4">ALWAN 4</option><option value="btn5">ALWAN 5</option><option value="btn6">ALWAN 6</option><option value="btn7">ALWAN 7</option><option value="btn8">ALWAN 8</option><option value="btn9">ALWAN 9</option><option value="btn10">ALWAN 10</option><option value="btn11">ALWAN 11</option><option value="btn12">ALWAN 12</option><option value="btn_new_1775361376263">1</option><option value="btn_new_1775361411665">2</option><option value="btn_new_1775361434207">3</option><option value="btn_new_1775361465197">3</option><option value="btn_new_1775665722230">4</option><option value="btn_new_1776485541380_0">alwan 1</option><option value="btn_new_1776485541380_1">alwan 2</option><option value="btn_new_1776485541380_2">alwan 3</option><option value="btn_new_1776485541380_3">alwan 4</option><option value="btn_new_1776485541380_4">alwan 5</option><option value="btn_new_1776485541380_5">alwan 6</option><option value="btn_new_1776485541380_6">alwan 7</option><option value="btn_new_1776485541380_7">alwan 8</option><option value="btn_new_1776485541380_8">alwan 9</option><option value="btn_new_1776485541380_9">alwan 10</option><option value="btn_new_1776485541380_10">alwan 11</option><option value="btn_new_1776485541380_11">alwan 12</option><option value="btn_new_1776485541380_12">alwan 13</option><option value="btn_new_1776485541380_13">alwan 14</option><option value="btn_new_1776485541380_14">alwan 15</option><option value="btn_new_1776485541380_15">alwan 16</option><option value="btn_new_1776485541380_16">alwan 17</option><option value="btn_new_1776485541380_17">alwan 18</option><option value="btn_new_1776485541380_18">alwan 19</option><option value="btn_new_1776485541380_19">alwan 20</option><option value="btn_new_1776485541380_20">alwan 21</option><option value="btn_new_1776485541380_21">alwan 22</option><option value="btn_new_1776485541380_22">alwan 23</option><option value="btn_new_1776485541380_23">alwan 24</option><option value="btn_new_1776485541380_24">alwan 25</option><option value="btn_new_1776485541380_25">alwan 26</option><option value="btn_new_1776485541380_26">alwan 27</option><option value="btn_new_1776485541380_27">alwan 28</option><option value="btn_new_1776485541380_28">alwan 29</option><option value="btn_new_1776485541380_29">alwan 30</option><option value="btn_new_1776485541380_30">alwan 31</option><option value="btn_new_1776485541380_31">alwan 32</option><option value="btn_new_1776485541380_32">alwan 33</option><option value="btn_new_1776485541380_33">alwan 34</option><option value="btn_new_1776485541380_34">alwan 35</option><option value="btn_new_1776485541380_35">alwan 36</option><option value="btn_new_1776485541380_36">alwan 37</option><option value="btn_new_1776485541380_37">alwan 38</option><option value="btn_new_1776485541380_38">alwan 39</option></select>
+                <select id="buttonSelect" onchange="loadButtonData()"><option value="btn_new_1776614394915_0">قناة جديدة FHD 1</option><option value="btn_new_1776614394915_1">قناة جديدة HD 2</option><option value="btn_new_1776614394915_2">قناة جديدة SD 3</option><option value="btn_new_1776614394915_3">قناة جديدة 4</option><option value="btn_new_1776614394915_4">قناة جديدة 5</option><option value="btn_new_1776614394915_5">قناة جديدة 6</option><option value="btn_new_1776614394915_6">قناة جديدة 7</option><option value="btn_new_1776614394915_7">قناة جديدة 8</option><option value="btn_new_1776614394915_8">قناة جديدة 9</option><option value="btn_new_1776614394915_9">قناة جديدة 10</option><option value="btn_new_1776614394915_10">قناة جديدة 11</option><option value="btn_new_1776614394915_11">قناة جديدة 12</option><option value="btn_new_1776614394915_12">قناة جديدة 13</option><option value="btn_new_1776614394915_13">قناة جديدة 14</option><option value="btn_new_1776614394915_14">قناة جديدة 15</option><option value="btn_new_1776614394915_15">قناة جديدة 16</option><option value="btn_new_1776614394915_16">قناة جديدة 17</option><option value="btn_new_1776614394915_17">قناة جديدة 18</option><option value="btn_new_1776614394915_18">قناة جديدة 19</option><option value="btn_new_1776614394915_19">قناة جديدة 20</option><option value="btn_new_1776614394915_20">قناة جديدة 21</option><option value="btn_new_1776614394915_21">قناة جديدة 22</option><option value="btn_new_1776614394915_22">قناة جديدة 23</option><option value="btn_new_1776614394915_23">قناة جديدة 24</option><option value="btn1">ALWAN 1</option><option value="btn2">ALWAN 2</option><option value="btn3">ALWAN 3</option><option value="btn4">ALWAN 4</option><option value="btn5">ALWAN 5</option><option value="btn6">ALWAN 6</option><option value="btn7">ALWAN 7</option><option value="btn8">ALWAN 8</option><option value="btn9">ALWAN 9</option><option value="btn10">ALWAN 10</option><option value="btn11">ALWAN 11</option><option value="btn12">ALWAN 12</option><option value="btn_new_1775361376263">1</option><option value="btn_new_1775361411665">2</option><option value="btn_new_1775361434207">3</option><option value="btn_new_1775361465197">3</option><option value="btn_new_1775665722230">4</option><option value="btn_new_1776485541380_0">alwan 1</option><option value="btn_new_1776485541380_1">alwan 2</option><option value="btn_new_1776485541380_2">alwan 3</option><option value="btn_new_1776485541380_3">alwan 4</option><option value="btn_new_1776485541380_4">alwan 5</option><option value="btn_new_1776485541380_5">alwan 6</option><option value="btn_new_1776485541380_6">alwan 7</option><option value="btn_new_1776485541380_7">alwan 8</option><option value="btn_new_1776485541380_8">alwan 9</option><option value="btn_new_1776485541380_9">alwan 10</option><option value="btn_new_1776485541380_10">alwan 11</option><option value="btn_new_1776485541380_11">alwan 12</option><option value="btn_new_1776485541380_12">alwan 13</option><option value="btn_new_1776485541380_13">alwan 14</option><option value="btn_new_1776485541380_14">alwan 15</option><option value="btn_new_1776485541380_15">alwan 16</option><option value="btn_new_1776485541380_16">alwan 17</option><option value="btn_new_1776485541380_17">alwan 18</option><option value="btn_new_1776485541380_18">alwan 19</option><option value="btn_new_1776485541380_19">alwan 20</option><option value="btn_new_1776485541380_20">alwan 21</option><option value="btn_new_1776485541380_21">alwan 22</option><option value="btn_new_1776485541380_22">alwan 23</option><option value="btn_new_1776485541380_23">alwan 24</option><option value="btn_new_1776485541380_24">alwan 25</option><option value="btn_new_1776485541380_25">alwan 26</option><option value="btn_new_1776485541380_26">alwan 27</option><option value="btn_new_1776485541380_27">alwan 28</option><option value="btn_new_1776485541380_28">alwan 29</option><option value="btn_new_1776485541380_29">alwan 30</option><option value="btn_new_1776485541380_30">alwan 31</option><option value="btn_new_1776485541380_31">alwan 32</option><option value="btn_new_1776485541380_32">alwan 33</option><option value="btn_new_1776485541380_33">alwan 34</option><option value="btn_new_1776485541380_34">alwan 35</option><option value="btn_new_1776485541380_35">alwan 36</option><option value="btn_new_1776485541380_36">alwan 37</option><option value="btn_new_1776485541380_37">alwan 38</option><option value="btn_new_1776485541380_38">alwan 39</option></select>
             </div>
             <div class="form-group">
                 <label>الاسم الجديد:</label>
-                <input type="text" id="editName" data-ddg-inputtype="unknown">
+                <input type="text" id="editName">
             </div>
             <div class="form-group">
                 <label>اللينك الجديد:</label>
-                <input type="text" id="editLink" data-ddg-inputtype="unknown">
+                <input type="text" id="editLink">
             </div>
             <div class="form-group">
                 <label>طريقة الفتح:</label>
-                <select id="editOpenTarget" data-ddg-inputtype="unknown">
+                <select id="editOpenTarget">
                     <option value="internal">داخلي (داخل المشغل)</option>
                     <option value="external">خارجي (في نافذة جديدة)</option>
                 </select>
@@ -389,11 +481,25 @@
 
     <script>
         let isSelectionMode = false;
-        let autoSkipTimer = null; 
         let autoSwitchInterval = null; 
-        let activeLinkType = 'iframe'; // تتبع نوع المشغل الحالي
+        let remainingSeconds = 20; 
+        let activeLinkType = 'iframe'; 
 
-        // الدالة الجديدة الخاصة بزر الإخفاء والإظهار
+        // دالة لتحديث الثواني المختارة والتأكد من الحدود
+        function updateAutoSwitchInterval() {
+            let input = document.getElementById('autoSwitchIntervalInput');
+            let val = parseInt(input.value);
+            if (isNaN(val) || val < 5) val = 5;
+            if (val > 60) val = 60;
+            input.value = val;
+            
+            // إذا كان التقليب شغال، نحدث العداد فوراً
+            if (autoSwitchInterval) {
+                remainingSeconds = val;
+                document.getElementById('autoSwitchBtn').innerText = `شغال (${remainingSeconds}) ⏱️`;
+            }
+        }
+
         function toggleHeaderVisibility() {
             let header = document.getElementById('mainPlayerHeader');
             let btn = document.getElementById('toggleHeaderBtn');
@@ -408,15 +514,26 @@
 
         function toggleAutoSwitch() {
             let btn = document.getElementById('autoSwitchBtn');
+            let intervalVal = parseInt(document.getElementById('autoSwitchIntervalInput').value);
+            
             if (autoSwitchInterval) {
                 clearInterval(autoSwitchInterval);
                 autoSwitchInterval = null;
                 btn.style.backgroundColor = '#e67e22'; 
                 btn.innerText = 'تقليب تلقائي ⏱️';
             } else {
-                autoSwitchInterval = setInterval(() => { nextStream(); }, 20000); 
+                remainingSeconds = intervalVal; 
                 btn.style.backgroundColor = '#27ae60'; 
-                btn.innerText = 'التقليب شغال ⏱️';
+                btn.innerText = `شغال (${remainingSeconds}) ⏱️`;
+                
+                autoSwitchInterval = setInterval(() => {
+                    remainingSeconds--;
+                    if (remainingSeconds <= 0) {
+                        nextStream();
+                        remainingSeconds = parseInt(document.getElementById('autoSwitchIntervalInput').value);
+                    }
+                    btn.innerText = `شغال (${remainingSeconds}) ⏱️`;
+                }, 1000);
             }
         }
 
@@ -424,7 +541,6 @@
             isSelectionMode = !isSelectionMode;
             let bar = document.getElementById('selectionBar');
             let selectBtn = document.getElementById('selectModeBtn');
-
             if (isSelectionMode) {
                 bar.classList.add('active');
                 selectBtn.style.backgroundColor = '#e74c3c';
@@ -453,15 +569,14 @@
 
         function deleteSelected() {
             let selected = document.querySelectorAll('#mainTabs .tab-btn.selected-channel');
-            if (selected.length === 0) { alert("يا باشا حدد قنوات الأول عشان تحذفها!"); return; }
-            if(confirm(`متأكد إنك عايز تحذف ${selected.length} قناة؟`)) {
+            if (selected.length === 0) { alert("حدد قنوات الأول!"); return; }
+            if(confirm(`حذف ${selected.length} قناة؟`)) {
                 selected.forEach(btn => {
                     if (btn.classList.contains('active')) closePlayer();
                     btn.remove();
                 });
                 populateSelectMenu();
                 updateSelectionCount();
-                document.getElementById('selectAllCheckbox').checked = false;
             }
         }
 
@@ -469,7 +584,7 @@
             let selected = document.querySelectorAll('#mainTabs .tab-btn.selected-channel');
             if (selected.length === 0) { alert("حدد قنوات الأول!"); return; }
             let links = Array.from(selected).map(btn => btn.getAttribute('data-link')).join('\n');
-            triggerCopy(links, "تم نسخ الروابط المحددة بنجاح! 🔗");
+            triggerCopy(links, "تم النسخ!");
         }
 
         function copySelectedCodes() {
@@ -485,7 +600,7 @@
 
         function duplicateSelected() {
             let selected = document.querySelectorAll('#mainTabs .tab-btn.selected-channel');
-            if (selected.length === 0) { alert("حدد قنوات الأول عشان تكررها!"); return; }
+            if (selected.length === 0) { alert("حدد قنوات الأول!"); return; }
             let container = document.getElementById('mainTabs');
             let timestamp = new Date().getTime();
             selected.forEach((btn, index) => {
@@ -495,7 +610,6 @@
                 container.appendChild(clone);
             });
             populateSelectMenu();
-            alert(`تم تكرار ${selected.length} قناة بنجاح! 📑`);
         }
 
         function openBulkEditModal() {
@@ -533,13 +647,13 @@
             textArea.style.left = "-9999px";
             document.body.appendChild(textArea);
             textArea.select();
-            try { document.execCommand('copy'); alert(successMsg); } 
-            catch (err) { alert("عذراً، المتصفح رفض النسخ."); }
+            try { document.execCommand('copy'); alert(successMsg); } catch (err) {}
             document.body.removeChild(textArea);
         }
 
         function populateSelectMenu() {
             const selectMenu = document.getElementById('buttonSelect');
+            if(!selectMenu) return;
             selectMenu.innerHTML = ''; 
             document.querySelectorAll('#mainTabs .tab-btn:not(#autoFetchBtn)').forEach(btn => {
                 let opt = document.createElement('option');
@@ -560,7 +674,6 @@
             let iframe = document.getElementById('iframePlayer');
             let btn = document.getElementById('adblockBtn');
             adblockEnabled = !adblockEnabled;
-            
             if (adblockEnabled) {
                 iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
                 btn.innerText = '🛡️ المانع (شغال)';
@@ -570,65 +683,57 @@
                 btn.innerText = '🛡️ المانع (مقفول)';
                 btn.classList.add('disabled');
             }
-            
-            if(activeLinkType === 'iframe') {
-                let currentSrc = iframe.src;
-                if(currentSrc && currentSrc !== window.location.href) iframe.src = currentSrc;
-            }
         }
 
-        // الدالة المعدلة الذكية للاختيار بين Iframe و Video HLS
         function playStream(btnElement) {
             if (isSelectionMode && btnElement.id !== 'autoFetchBtn') {
                 btnElement.classList.toggle('selected-channel');
                 updateSelectionCount();
                 return; 
             }
-
-            let link = btnElement.getAttribute('data-link');
+            let originalLink = btnElement.getAttribute('data-link');
             let target = btnElement.getAttribute('data-open') || 'internal'; 
-
-            if(!link) return;
+            if(!originalLink) return;
 
             if (target === 'external') {
-                window.open(link, '_blank');
+                window.open(originalLink, '_blank');
                 return; 
             }
 
             let iframe = document.getElementById('iframePlayer');
             let video = document.getElementById('videoPlayer');
 
-            // إيقاف أي مشغل شغال حالياً
             iframe.src = "";
             video.pause();
             video.removeAttribute('src');
             video.load();
             if (window.hls) window.hls.destroy();
 
-            // فحص نوع الرابط
-            if (link.includes('.m3u8') || link.includes('.mp4')) {
-                // استخدام مشغل HLS للروابط المباشرة
+            let linkToPlay = originalLink;
+            if (linkToPlay.endsWith('.ts')) {
+                linkToPlay = linkToPlay.replace('.ts', '.m3u8');
+            }
+
+            if (linkToPlay.includes('.m3u8') || linkToPlay.includes('.mp4')) {
                 activeLinkType = 'video';
                 iframe.style.display = 'none';
                 video.style.display = 'block';
-
-                if (Hls.isSupported() && link.includes('.m3u8')) {
+                if (Hls.isSupported() && linkToPlay.includes('.m3u8')) {
                     window.hls = new Hls();
-                    window.hls.loadSource(link);
+                    window.hls.loadSource(linkToPlay);
                     window.hls.attachMedia(video);
                     window.hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                        video.play().catch(e => console.log("المتصفح منع التشغيل التلقائي"));
+                        video.play().catch(e => {});
                     });
                 } else {
-                    video.src = link;
-                    video.play().catch(e => console.log("المتصفح منع التشغيل التلقائي"));
+                    video.src = linkToPlay;
+                    video.play().catch(e => {});
                 }
             } else {
-                // استخدام Iframe لصفحات الويب العادية
                 activeLinkType = 'iframe';
                 video.style.display = 'none';
                 iframe.style.display = 'block';
-                iframe.src = link;
+                iframe.src = linkToPlay;
             }
 
             document.getElementById('closeVid').style.display = 'inline-block';
@@ -641,16 +746,12 @@
         function closePlayer() {
             let iframe = document.getElementById('iframePlayer');
             let video = document.getElementById('videoPlayer');
-            
             iframe.src = "";
             iframe.style.display = 'none';
-            
             video.pause();
             video.removeAttribute('src');
-            video.load();
             video.style.display = 'none';
             if (window.hls) window.hls.destroy();
-            
             document.getElementById('closeVid').style.display = 'none';
             document.getElementById('externalVid').style.display = 'none';
             document.getElementById('copyLinkBtn').style.display = 'none';
@@ -659,13 +760,12 @@
 
         function openExternal() {
             let activeBtn = document.querySelector('.tab-btn.active');
-            if (activeBtn) { window.open(activeBtn.getAttribute('data-link'), '_blank'); } 
-            else { alert("مفيش بث شغال حالياً!"); }
+            if (activeBtn) window.open(activeBtn.getAttribute('data-link'), '_blank');
         }
 
         function copyCurrentLink() {
             let activeBtn = document.querySelector('.tab-btn.active');
-            if (activeBtn) { triggerCopy(activeBtn.getAttribute('data-link'), "تم نسخ رابط القناة بنجاح!"); }
+            if (activeBtn) triggerCopy(activeBtn.getAttribute('data-link'), "تم النسخ!");
         }
 
         function openModal() {
@@ -691,17 +791,10 @@
             let id = document.getElementById('buttonSelect').value;
             let btn = document.getElementById(id);
             if(!btn) return;
-            
             btn.innerText = document.getElementById('editName').value;
             btn.setAttribute('data-link', document.getElementById('editLink').value);
             btn.setAttribute('data-open', document.getElementById('editOpenTarget').value);
-            
             populateSelectMenu();
-            
-            if (btn.classList.contains('active') && !isSelectionMode) {
-                if (document.getElementById('editOpenTarget').value === 'external') { closePlayer(); } 
-                else { playStream(btn); }
-            }
             alert("تم التعديل!");
         }
 
@@ -712,17 +805,15 @@
                 if(btn.classList.contains('active')) closePlayer();
                 btn.remove();
                 populateSelectMenu();
-                alert("تم الحذف!");
             }
         }
 
         function addNewChannel() {
-            let inputLinks = prompt("حط اللينكات هنا (كل لينك في سطر أو بينهم مسافة):");
+            let inputLinks = prompt("حط اللينكات هنا:");
             if (!inputLinks) return;
             let linksArray = inputLinks.split(/[\s,\n]+/).filter(l => l.trim() !== "");
-            let baseName = prompt("الاسم الأساسي للقنوات:", "قناة جديدة");
+            let baseName = prompt("الاسم الأساسي:", "قناة جديدة");
             let timestamp = new Date().getTime();
-            
             linksArray.forEach((link, index) => {
                 let newBtn = document.createElement("button");
                 newBtn.id = "btn_new_" + timestamp + "_" + index;
@@ -749,7 +840,7 @@
         function copyFullCode() {
             closeModal();
             let content = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
-            triggerCopy(content, "تم نسخ الكود بالكامل بنجاح! ✅");
+            triggerCopy(content, "تم نسخ الكود بالكامل!");
         }
 
         function nextStream() {
@@ -759,6 +850,7 @@
             let nextIndex = (activeIndex + 1) % tabs.length; 
             playStream(tabs[nextIndex]);
             tabs[nextIndex].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+            if (autoSwitchInterval) remainingSeconds = parseInt(document.getElementById('autoSwitchIntervalInput').value);
         }
 
         function prevStream() {
@@ -768,9 +860,9 @@
             let prevIndex = (activeIndex - 1 + tabs.length) % tabs.length; 
             playStream(tabs[prevIndex]);
             tabs[prevIndex].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+            if (autoSwitchInterval) remainingSeconds = parseInt(document.getElementById('autoSwitchIntervalInput').value);
         }
 
         function toggleRotation() { document.querySelector('.video-wrapper').classList.toggle('rotated'); }
     </script>
-
 </body></html>
