@@ -17,13 +17,21 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
-            overflow: auto;
+            overflow: hidden; 
         }
 
         /* شريط التحكم العلوي للمشغل */
         .player-header {
-            background-color: #111;
-            border-bottom: 2px solid #222;
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 100;
+            background-color: rgba(17, 17, 17, 0.5); 
+            backdrop-filter: blur(8px); 
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding: 8px 10px;
             display: flex;
             flex-direction: column;
@@ -47,6 +55,7 @@
             cursor: pointer;
             font-weight: bold;
             transition: 0.3s;
+            touch-action: manipulation;
         }
 
         .nav-buttons {
@@ -65,22 +74,23 @@
             cursor: pointer;
             font-weight: bold;
             transition: 0.3s;
+            touch-action: manipulation;
         }
 
-        /* ستايل مدخل الثواني الجديد */
+        /* ستايل مدخل الثواني */
         .interval-input-group {
             display: flex;
             align-items: center;
-            background: #2c3e50;
+            background: rgba(44, 62, 80, 0.8);
             padding: 4px 8px;
             border-radius: 4px;
             gap: 5px;
-            border: 1px solid #34495e;
+            border: 1px solid rgba(52, 73, 94, 0.8);
         }
         .interval-input-group label { font-size: 12px; font-weight: bold; }
         .interval-input-group input { 
             width: 45px; 
-            background: #000; 
+            background: rgba(0, 0, 0, 0.5); 
             color: #2ecc71; 
             border: 1px solid #555; 
             border-radius: 3px; 
@@ -88,61 +98,118 @@
             font-weight: bold;
         }
 
-        .nav-btn { background-color: #3498db; }
-        .nav-btn:hover { background-color: #2980b9; }
-        .rotate-btn { background-color: #9b59b6; }
-        .rotate-btn:hover { background-color: #8e44ad; }
-        .close-top-btn { background-color: #c0392b; }
-        .close-top-btn:hover { background-color: #e74c3c; }
-        .external-top-btn { background-color: #8e44ad; }
-        .external-top-btn:hover { background-color: #9b59b6; }
-        .copy-top-btn { background-color: #f39c12; color: #000; }
-        .copy-top-btn:hover { background-color: #e67e22; color: white; }
-        .adblock-btn { background-color: #27ae60; }
-        .adblock-btn.disabled { background-color: #c0392b; }
+        /* ستايل مدخل التشغيل المباشر */
+        .direct-input-group {
+            display: flex;
+            align-items: center;
+            background: rgba(44, 62, 80, 0.8);
+            padding: 4px 8px;
+            border-radius: 4px;
+            gap: 5px;
+            border: 1px solid rgba(52, 73, 94, 0.8);
+        }
+        .direct-input-group input {
+            width: 150px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 3px;
+            padding: 4px;
+            font-size: 12px;
+            direction: ltr;
+        }
+        .direct-input-group input::placeholder {
+            color: #aaa;
+            direction: rtl;
+        }
 
+        /* شارات الحالة والجودة */
+        .status-badge, .quality-badge {
+            background: rgba(44, 62, 80, 0.9);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: bold;
+            border: 1px solid rgba(52, 73, 94, 0.8);
+            display: flex;
+            align-items: center;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+        }
+
+        .nav-btn { background-color: rgba(52, 152, 219, 0.9); }
+        .nav-btn:hover { background-color: #2980b9; }
+        .rotate-btn { background-color: rgba(155, 89, 182, 0.9); }
+        .rotate-btn:hover { background-color: #8e44ad; }
+        .close-top-btn { background-color: rgba(192, 57, 43, 0.9); }
+        .close-top-btn:hover { background-color: #e74c3c; }
+        .external-top-btn { background-color: rgba(142, 68, 173, 0.9); }
+        .external-top-btn:hover { background-color: #9b59b6; }
+        .copy-top-btn { background-color: rgba(243, 156, 18, 0.9); color: #000; }
+        .copy-top-btn:hover { background-color: #e67e22; color: white; }
+        .adblock-btn { background-color: rgba(39, 174, 96, 0.9); }
+        .adblock-btn.disabled { background-color: rgba(192, 57, 43, 0.9); }
+
+        /* ستايل السيرفرات المربعة */
         .tabs-container {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             overflow-x: auto;
             white-space: nowrap;
             padding-bottom: 5px;
         }
         
         .tabs-container::-webkit-scrollbar { height: 6px; }
-        .tabs-container::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+        .tabs-container::-webkit-scrollbar-thumb { background: rgba(68, 68, 68, 0.8); border-radius: 4px; }
 
         .tab-btn {
-            background-color: #008b8b;
-            color: white;
-            border: none;
-            padding: 6px 15px;
+            background-color: transparent;
+            color: #f1c40f; 
+            border: 1px solid #ccc;
+            padding: 8px 20px;
             font-size: 14px;
-            border-radius: 4px;
+            border-radius: 0px; 
             cursor: pointer;
             font-weight: bold;
             transition: 0.3s;
             flex-shrink: 0;
+            touch-action: manipulation;
+        }
+
+        .tab-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .tab-btn.active {
-            background-color: #27ae60 !important;
-            border: 2px solid #fff;
-            box-shadow: 0 0 10px rgba(39, 174, 96, 0.8);
+            background-color: #c0392b !important; 
+            color: white !important;
+            border: 1px solid white;
+            box-shadow: none; 
         }
 
         .tab-btn.selected-channel {
             background-color: #8e44ad !important;
             border: 2px dashed #f1c40f;
-            box-shadow: 0 0 10px rgba(142, 68, 173, 0.8);
             transform: scale(0.95);
         }
 
+        /* التصغير الافتراضي 50% */
         .video-wrapper {
             position: relative;
             width: 100%;
-            height: 60vh;
+            flex: 1; 
             background-color: #000;
+            --zoom-level: 0.5; 
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            transform: scale(var(--zoom-level));
+            transition: transform 0.3s ease-in-out;
+            transform-origin: center center;
         }
 
         .video-wrapper.rotated iframe,
@@ -152,17 +219,9 @@
             left: 50%;
             width: calc(100vh - 75px);
             height: 100vw;
-            transform: translate(-50%, -50%) rotate(90deg);
+            transform: translate(-50%, -50%) rotate(90deg) scale(var(--zoom-level));
         }
 
-        iframe, video {
-            width: 100%;
-            height: 100%;
-            border: none;
-            outline: none;
-        }
-
-        /* إخفاء المشغلات افتراضياً حتى يتم الاختيار */
         #iframePlayer, #videoPlayer {
             display: none;
         }
@@ -254,8 +313,10 @@
             bottom: -100px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #1a1a1a;
-            border: 2px solid #f39c12;
+            background-color: rgba(26, 26, 26, 0.85); 
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 2px solid rgba(243, 156, 18, 0.7);
             border-radius: 10px;
             padding: 10px 15px;
             display: flex;
@@ -279,15 +340,16 @@
         .s-del-btn { background-color: #e74c3c; }
         .s-close-btn { background-color: #c0392b; border: 1px solid #ff7675; }
 
-        /* ستايل زر إخفاء وإظهار الشريط الجديد */
         .toggle-header-btn {
             position: fixed;
             top: 10px;
             left: 10px;
             z-index: 9999;
-            background-color: #34495e;
+            background-color: rgba(52, 73, 94, 0.8);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
             color: white;
-            border: 1px solid #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 6px 12px;
             font-size: 13px;
             border-radius: 4px;
@@ -296,41 +358,59 @@
             transition: 0.3s;
             box-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
-        .toggle-header-btn:hover { background-color: #2c3e50; }
+        .toggle-header-btn:hover { background-color: rgba(44, 62, 80, 0.9); }
 
     </style>
 <style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
 <body>
 
-    <button id="toggleHeaderBtn" class="toggle-header-btn" onclick="toggleHeaderVisibility()">  🔼</button>
+    <button id="toggleHeaderBtn" class="toggle-header-btn" onclick="toggleHeaderVisibility()">إخفاء الشريط 🔼</button>
 
     <div class="player-header" id="mainPlayerHeader" style="display: flex;">
         <div class="top-controls">
             <div style="display: flex; gap: 5px; flex-wrap: wrap;">
                 <button class="admin-btn" onclick="openModal()">⚙️ التعديل</button>
-                <button class="admin-btn" style="background-color: #2c3e50; color: white;" onclick="openBulkEditModal()">📝 تعديل الكود</button>
-                <button id="selectModeBtn" class="admin-btn" style="background-color: rgb(142, 68, 173); color: white;" onclick="toggleSelectionMode()">☑️ تحديد القنوات</button>
+                <button class="admin-btn" style="background-color: rgba(44, 62, 80, 0.9); color: white;" onclick="openBulkEditModal()">📝 تعديل الكود</button>
+                <button id="selectModeBtn" class="admin-btn" style="background-color: rgba(142, 68, 173, 0.9); color: white;" onclick="toggleSelectionMode()">☑️ تحديد القنوات</button>
             </div>
             
             <div class="nav-buttons">
+                <div id="streamStatusBadge" class="status-badge" style="color: rgb(46, 204, 113);">🟢 شغال</div>
+                <div id="streamQualityBadge" class="quality-badge" style="display: none; color: rgb(52, 152, 219);">📺 --</div>
+
                 <div class="interval-input-group">
                     <label>المدة (5-60ث):</label>
                     <input type="number" id="autoSwitchIntervalInput" value="20" min="5" max="60" onchange="updateAutoSwitchInterval()">
                 </div>
 
+                <div class="direct-input-group">
+                    <input type="text" id="directLinkInput" placeholder="رابط m3u8 أو صفحة...">
+                    <button class="nav-btn" style="padding: 4px 8px; font-size: 12px; background-color: #8e44ad;" onclick="playDirectLink()">▶️ تشغيل</button>
+                </div>
+
+                <button id="zoomInBtn" class="nav-btn" style="background-color: #34495e;" title="تكبير">تكبير ➕</button>
+                <button id="zoomOutBtn" class="nav-btn" style="background-color: #34495e;" title="تصغير">تصغير ➖</button>
+                
+                <button id="zoomResetBtn" class="nav-btn" style="background-color: #7f8c8d; color: white;" title="الحجم المُصغر">50%</button>
+                <button id="zoom100Btn" class="nav-btn" style="background-color: #95a5a6; color: white;" title="الحجم الطبيعي">100%</button>
+                
+                <button id="muteBtn" class="nav-btn" style="background-color: #2c3e50;" onclick="toggleMute()">🔊 الصوت</button>
+                <button id="fullscreenBtn" class="nav-btn" style="background-color: #2c3e50;" onclick="toggleFullScreen()">🔲 ملء الشاشة</button>
+
                 <button id="closeVid" class="close-top-btn" onclick="closePlayer()" style="display: none;">إغلاق ✖</button>
                 <button id="externalVid" class="external-top-btn" onclick="openExternal()" style="display: none;">خارجي ↗</button>
                 <button id="copyLinkBtn" class="copy-top-btn" onclick="copyCurrentLink()" style="display: none;">نسخ الرابط 🔗</button>
                 
-                <button id="autoSwitchBtn" class="nav-btn" onclick="toggleAutoSwitch()" style="background-color: rgb(230, 126, 34);">تقليب تلقائي ⏱️</button>
+                <button id="autoSwitchBtn" class="nav-btn" onclick="toggleAutoSwitch()" style="background-color: rgba(230, 126, 34, 0.9);">تقليب تلقائي ⏱️</button>
 
                 <button class="nav-btn" onclick="prevStream()">الســـــــــــــــــــابق ⏮️</button>
                 <button class="nav-btn" onclick="nextStream()">التـــــــــــــــــــــــــــــــــــــــــــــالي ⏭️</button>
                 <button class="rotate-btn" onclick="toggleRotation()">تدوير 🔄</button>
-                <button id="adblockBtn" class="adblock-btn disabled" onclick="toggleAdBlock()">🛡️ المانع (مقفول)</button>
+                
+                <button class="adblock-btn deny-btn" onclick="toggleDenyPopups()">🚫 Deny Popups (مفعل)</button>
             </div>
 
-            <button id="adblockBtn" class="adblock-btn" onclick="toggleAdBlock()">🛡️ المانع (شغال)</button>
+            <button class="adblock-btn deny-btn" onclick="toggleDenyPopups()">🚫 Deny Popups (مفعل)</button>
         </div>
 
         <div class="tabs-container" id="mainTabs"><button id="btn2" class="tab-btn" data-link="https://omarsalam22142214-ops.github.io/chiptv/" onclick="playStream(this)" data-open="internal">iptv</button>
@@ -413,12 +493,37 @@
 <button id="btn_new_1776485541380_36" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/120836" data-open="internal" onclick="playStream(this)">alwan 37</button>
 <button id="btn_new_1776485541380_37" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/5821" data-open="internal" onclick="playStream(this)">alwan 38</button>
 <button id="btn_new_1776485541380_38" class="tab-btn" data-link="http://auziatv.com:8080/oooo2256/ZMsd42d/35134" data-open="internal" onclick="playStream(this)">alwan 39</button>
-<button id="btn_new_1776913708650_0" class="tab-btn" data-link="[4/23/2026" data-open="internal" onclick="playStream(this)">1 1</button><button id="btn_new_1776913708650_1" class="tab-btn" data-link="5:06" data-open="internal" onclick="playStream(this)">1 2</button><button id="btn_new_1776913708650_2" class="tab-btn" data-link="AM]" data-open="internal" onclick="playStream(this)">1 3</button><button id="btn_new_1776913708650_3" class="tab-btn" data-link="It" data-open="internal" onclick="playStream(this)">1 4</button><button id="btn_new_1776913708650_4" class="tab-btn" data-link="'s" data-open="internal" onclick="playStream(this)">1 5</button><button id="btn_new_1776913708650_5" class="tab-btn" data-link="Me" data-open="internal" onclick="playStream(this)">1 6</button><button id="btn_new_1776913708650_6" class="tab-btn" data-link="2830:" data-open="internal" onclick="playStream(this)">1 7</button><button id="btn_new_1776913708650_7" class="tab-btn" data-link="https://live.kora-top.zip/frame.php?ch=alwan1&amp;p=12&amp;token=e255f18c-0081-471e-a764-ad4a17b84e58&amp;kt=1776913558" data-open="internal" onclick="playStream(this)">1 8</button><button id="btn_new_1776913708650_8" class="tab-btn" data-link="[4/23/2026" data-open="internal" onclick="playStream(this)">1 9</button><button id="btn_new_1776913708650_9" class="tab-btn" data-link="5:06" data-open="internal" onclick="playStream(this)">1 10</button><button id="btn_new_1776913708650_10" class="tab-btn" data-link="AM]" data-open="internal" onclick="playStream(this)">1 11</button><button id="btn_new_1776913708650_11" class="tab-btn" data-link="It" data-open="internal" onclick="playStream(this)">1 12</button><button id="btn_new_1776913708650_12" class="tab-btn" data-link="'s" data-open="internal" onclick="playStream(this)">1 13</button><button id="btn_new_1776913708650_13" class="tab-btn" data-link="Me" data-open="internal" onclick="playStream(this)">1 14</button><button id="btn_new_1776913708650_14" class="tab-btn" data-link="2830:" data-open="internal" onclick="playStream(this)">1 15</button><button id="btn_new_1776913708650_15" class="tab-btn" data-link="https://live.kora-top.zip/frame.php?ch=alwan1&amp;p=12&amp;token=e255f18c-0081-471e-a764-ad4a17b84e58&amp;kt=1776913583" data-open="internal" onclick="playStream(this)">1 16</button><button id="btn_new_1776913708650_16" class="tab-btn" data-link="[4/23/2026" data-open="internal" onclick="playStream(this)">1 17</button><button id="btn_new_1776913708650_17" class="tab-btn" data-link="5:06" data-open="internal" onclick="playStream(this)">1 18</button><button id="btn_new_1776913708650_18" class="tab-btn" data-link="AM]" data-open="internal" onclick="playStream(this)">1 19</button><button id="btn_new_1776913708650_19" class="tab-btn" data-link="It" data-open="internal" onclick="playStream(this)">1 20</button><button id="btn_new_1776913708650_20" class="tab-btn" data-link="'s" data-open="internal" onclick="playStream(this)">1 21</button><button id="btn_new_1776913708650_21" class="tab-btn" data-link="Me" data-open="internal" onclick="playStream(this)">1 22</button><button id="btn_new_1776913708650_22" class="tab-btn" data-link="2830:" data-open="internal" onclick="playStream(this)">1 23</button><button id="btn_new_1776913708650_23" class="tab-btn" data-link="https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f76332e73706f727473736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f6864312e706870&amp;s=1" data-open="internal" onclick="playStream(this)">1 24</button><button id="btn_new_1776913759476_0" class="tab-btn" data-link="https://live.kora-top.zip/frame.php?ch=alwan1&amp;p=12&amp;token=e255f18c-0081-471e-a764-ad4a17b84e58&amp;kt=1776913558" data-open="external" onclick="playStream(this)">1</button></div>
+<button id="btn_new_1776913708650_0" class="tab-btn" data-link="[4/23/2026" data-open="internal" onclick="playStream(this)">1 1</button>
+<button id="btn_new_1776913708650_1" class="tab-btn" data-link="5:06" data-open="internal" onclick="playStream(this)">1 2</button>
+<button id="btn_new_1776913708650_2" class="tab-btn" data-link="AM]" data-open="internal" onclick="playStream(this)">1 3</button>
+<button id="btn_new_1776913708650_3" class="tab-btn" data-link="It" data-open="internal" onclick="playStream(this)">1 4</button>
+<button id="btn_new_1776913708650_4" class="tab-btn" data-link="'s" data-open="internal" onclick="playStream(this)">1 5</button>
+<button id="btn_new_1776913708650_5" class="tab-btn" data-link="Me" data-open="internal" onclick="playStream(this)">1 6</button>
+<button id="btn_new_1776913708650_6" class="tab-btn" data-link="2830:" data-open="internal" onclick="playStream(this)">1 7</button>
+<button id="btn_new_1776913708650_7" class="tab-btn" data-link="https://live.kora-top.zip/frame.php?ch=alwan1&amp;p=12&amp;token=e255f18c-0081-471e-a764-ad4a17b84e58&amp;kt=1776913558" data-open="internal" onclick="playStream(this)">1 8</button>
+<button id="btn_new_1776913708650_8" class="tab-btn" data-link="[4/23/2026" data-open="internal" onclick="playStream(this)">1 9</button>
+<button id="btn_new_1776913708650_9" class="tab-btn" data-link="5:06" data-open="internal" onclick="playStream(this)">1 10</button>
+<button id="btn_new_1776913708650_10" class="tab-btn" data-link="AM]" data-open="internal" onclick="playStream(this)">1 11</button>
+<button id="btn_new_1776913708650_11" class="tab-btn" data-link="It" data-open="internal" onclick="playStream(this)">1 12</button>
+<button id="btn_new_1776913708650_12" class="tab-btn" data-link="'s" data-open="internal" onclick="playStream(this)">1 13</button>
+<button id="btn_new_1776913708650_13" class="tab-btn" data-link="Me" data-open="internal" onclick="playStream(this)">1 14</button>
+<button id="btn_new_1776913708650_14" class="tab-btn" data-link="2830:" data-open="internal" onclick="playStream(this)">1 15</button>
+<button id="btn_new_1776913708650_15" class="tab-btn" data-link="https://live.kora-top.zip/frame.php?ch=alwan1&amp;p=12&amp;token=e255f18c-0081-471e-a764-ad4a17b84e58&amp;kt=1776913583" data-open="internal" onclick="playStream(this)">1 16</button>
+<button id="btn_new_1776913708650_16" class="tab-btn" data-link="[4/23/2026" data-open="internal" onclick="playStream(this)">1 17</button>
+<button id="btn_new_1776913708650_17" class="tab-btn" data-link="5:06" data-open="internal" onclick="playStream(this)">1 18</button>
+<button id="btn_new_1776913708650_18" class="tab-btn" data-link="AM]" data-open="internal" onclick="playStream(this)">1 19</button>
+<button id="btn_new_1776913708650_19" class="tab-btn" data-link="It" data-open="internal" onclick="playStream(this)">1 20</button>
+<button id="btn_new_1776913708650_20" class="tab-btn" data-link="'s" data-open="internal" onclick="playStream(this)">1 21</button>
+<button id="btn_new_1776913708650_21" class="tab-btn" data-link="Me" data-open="internal" onclick="playStream(this)">1 22</button>
+<button id="btn_new_1776913708650_22" class="tab-btn" data-link="2830:" data-open="internal" onclick="playStream(this)">1 23</button>
+<button id="btn_new_1776913708650_23" class="tab-btn" data-link="https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f76332e73706f727473736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f6864312e706870&amp;s=1" data-open="internal" onclick="playStream(this)">1 24</button>
+<button id="btn_new_1776913759476_0" class="tab-btn" data-link="https://live.kora-top.zip/frame.php?ch=alwan1&amp;p=12&amp;token=e255f18c-0081-471e-a764-ad4a17b84e58&amp;kt=1776913558" data-open="external" onclick="playStream(this)">1</button>
+</div>
     </div>
 
-    <div class="video-wrapper">
-        <iframe id="iframePlayer" src="" allowfullscreen="" style="display: none;"></iframe>
-        <video id="videoPlayer" controls="" autoplay="" style="display: none;"></video>
+    <div class="video-wrapper" style="--zoom-level: 0.5;">
+        <iframe id="iframePlayer" src="" allowfullscreen="" style="display: none;" sandbox="allow-scripts allow-same-origin"></iframe>
+        <video id="videoPlayer" controls="" autoplay="" playsinline="" style="display: none;"></video>
     </div>
 
     <div id="selectionBar" class="selection-bar">
@@ -429,6 +534,7 @@
         <button class="s-btn s-dup-btn" onclick="duplicateSelected()">تكرار 📑</button>
         <button class="s-btn s-link-btn" onclick="copySelectedLinks()">روابط 🔗</button>
         <button class="s-btn s-code-btn" onclick="copySelectedCodes()">أكواد 📄</button>
+        <button class="s-btn" style="background-color: #16a085; color: white;" onclick="exportSelectedToM3U()">M3U8 📥</button>
         <button class="s-btn s-del-btn" onclick="deleteSelected()">حذف 🗑️</button>
         <button class="s-btn s-close-btn" onclick="toggleSelectionMode()">إغلاق ❌</button>
     </div>
@@ -475,17 +581,121 @@
                 <button class="add-channel-btn" onclick="addNewChannel()">➕ إضافة قناة بث جديدة</button>
                 <button class="download-btn" onclick="downloadFullFile()">💾 حفظ الملف</button>
                 <button class="copy-btn" onclick="copyFullCode()">📋 نسخ الكود</button>
+                <button class="download-btn" style="background-color: #16a085;" onclick="exportToM3U()">📁 تحميل M3U8</button>
             </div>
         </div>
     </div>
 
     <script>
+        // حفظ دالة الفتح الأصلية
+        const originalWindowOpen = window.open;
+
+        window.open = function(url) {
+            if (url) {
+                let tempBtn = document.createElement("button");
+                tempBtn.setAttribute("data-link", url);
+                tempBtn.setAttribute("data-open", "internal");
+                playStream(tempBtn);
+            }
+            return null;
+        };
+
+        document.addEventListener('click', function(e) {
+            let link = e.target.closest('a');
+            if (link && (link.getAttribute('target') === '_blank' || link.target === '_blank')) {
+                e.preventDefault();
+                let tempBtn = document.createElement("button");
+                tempBtn.setAttribute("data-link", link.href);
+                tempBtn.setAttribute("data-open", "internal");
+                playStream(tempBtn);
+            }
+        });
+        // =======================================================================
+
         let isSelectionMode = false;
         let autoSwitchInterval = null; 
         let remainingSeconds = 20; 
         let activeLinkType = 'iframe'; 
+        
+        let currentZoom = 0.5; 
+        const zoomStep = 0.1;
 
-        // دالة لتحديث الثواني المختارة والتأكد من الحدود
+        // === دوال التحكم في حالة البث والجودة ===
+        function updateStreamStatus(state) {
+            let statusBadge = document.getElementById('streamStatusBadge');
+            if(state === 'loading') {
+                statusBadge.innerHTML = '⏳ بيحمل...';
+                statusBadge.style.color = '#f1c40f';
+            } else if (state === 'playing') {
+                statusBadge.innerHTML = '🟢 شغال';
+                statusBadge.style.color = '#2ecc71';
+            } else if (state === 'error') {
+                statusBadge.innerHTML = '🔴 قاطع / خطأ';
+                statusBadge.style.color = '#e74c3c';
+            } else if (state === 'idle') {
+                statusBadge.innerHTML = '⚪ في الانتظار';
+                statusBadge.style.color = '#bdc3c7';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            let video = document.getElementById('videoPlayer');
+            let iframe = document.getElementById('iframePlayer');
+            
+            video.addEventListener('playing', () => updateStreamStatus('playing'));
+            video.addEventListener('waiting', () => updateStreamStatus('loading'));
+            video.addEventListener('error', () => updateStreamStatus('error'));
+
+            iframe.addEventListener('load', () => {
+                if(activeLinkType === 'iframe' && iframe.src) {
+                    updateStreamStatus('playing');
+                }
+            });
+        });
+        // ===================================
+
+        function playDirectLink() {
+            let link = document.getElementById('directLinkInput').value.trim();
+            if (!link) {
+                alert("حط الرابط الأول عشان يشتغل!");
+                return;
+            }
+            let tempBtn = document.createElement("button");
+            tempBtn.setAttribute("data-link", link);
+            tempBtn.setAttribute("data-open", "internal");
+            playStream(tempBtn);
+        }
+
+        document.getElementById('zoomInBtn').addEventListener('click', () => {
+            currentZoom += zoomStep;
+            updateZoom();
+        });
+
+        document.getElementById('zoomOutBtn').addEventListener('click', () => {
+            if (currentZoom > 0.1) { 
+                currentZoom -= zoomStep;
+                updateZoom();
+            }
+        });
+
+        // زرار الـ 50% بيرجع الحجم لـ 0.5
+        document.getElementById('zoomResetBtn').addEventListener('click', () => {
+            currentZoom = 0.5; 
+            updateZoom();
+        });
+
+        // زرار الـ 100% بيكبر الحجم لـ 1.0
+        document.getElementById('zoom100Btn').addEventListener('click', () => {
+            currentZoom = 1; 
+            updateZoom();
+        });
+
+        function updateZoom() {
+            document.querySelector('.video-wrapper').style.setProperty('--zoom-level', currentZoom);
+            // لو عايز زرار الـ 50% يفضل مكتوب عليه 50% وميتغيرش رقمه بنسيب السطر ده ملغي أو نمسحه
+            // وثبتنا أسماء الزراير فمفيش داعي الرقم يتغير جواها
+        }
+
         function updateAutoSwitchInterval() {
             let input = document.getElementById('autoSwitchIntervalInput');
             let val = parseInt(input.value);
@@ -493,7 +703,6 @@
             if (val > 60) val = 60;
             input.value = val;
             
-            // إذا كان التقليب شغال، نحدث العداد فوراً
             if (autoSwitchInterval) {
                 remainingSeconds = val;
                 document.getElementById('autoSwitchBtn').innerText = `شغال (${remainingSeconds}) ⏱️`;
@@ -519,11 +728,11 @@
             if (autoSwitchInterval) {
                 clearInterval(autoSwitchInterval);
                 autoSwitchInterval = null;
-                btn.style.backgroundColor = '#e67e22'; 
+                btn.style.backgroundColor = 'rgba(230, 126, 34, 0.9)'; 
                 btn.innerText = 'تقليب تلقائي ⏱️';
             } else {
                 remainingSeconds = intervalVal; 
-                btn.style.backgroundColor = '#27ae60'; 
+                btn.style.backgroundColor = 'rgba(39, 174, 96, 0.9)'; 
                 btn.innerText = `شغال (${remainingSeconds}) ⏱️`;
                 
                 autoSwitchInterval = setInterval(() => {
@@ -543,11 +752,11 @@
             let selectBtn = document.getElementById('selectModeBtn');
             if (isSelectionMode) {
                 bar.classList.add('active');
-                selectBtn.style.backgroundColor = '#e74c3c';
+                selectBtn.style.backgroundColor = 'rgba(231, 76, 60, 0.9)';
                 selectBtn.innerText = 'إلغاء وضع التحديد';
             } else {
                 bar.classList.remove('active');
-                selectBtn.style.backgroundColor = '#8e44ad';
+                selectBtn.style.backgroundColor = 'rgba(142, 68, 173, 0.9)';
                 selectBtn.innerText = '☑️ تحديد القنوات';
                 document.querySelectorAll('.tab-btn.selected-channel').forEach(b => b.classList.remove('selected-channel'));
                 document.getElementById('selectAllCheckbox').checked = false;
@@ -669,19 +878,24 @@
             if(firstBtn) playStream(firstBtn);
         };
 
-        let adblockEnabled = true;
-        function toggleAdBlock() {
+        let denyPopupsEnabled = true;
+        function toggleDenyPopups() {
             let iframe = document.getElementById('iframePlayer');
-            let btn = document.getElementById('adblockBtn');
-            adblockEnabled = !adblockEnabled;
-            if (adblockEnabled) {
+            let btns = document.querySelectorAll('.deny-btn');
+            denyPopupsEnabled = !denyPopupsEnabled;
+            
+            if (denyPopupsEnabled) {
                 iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
-                btn.innerText = '🛡️ المانع (شغال)';
-                btn.classList.remove('disabled');
+                btns.forEach(btn => {
+                    btn.innerText = '🚫 Deny Popups (مفعل)';
+                    btn.classList.remove('disabled');
+                });
             } else {
                 iframe.removeAttribute('sandbox');
-                btn.innerText = '🛡️ المانع (مقفول)';
-                btn.classList.add('disabled');
+                btns.forEach(btn => {
+                    btn.innerText = '⚠️ Deny Popups (ملغي)';
+                    btn.classList.add('disabled');
+                });
             }
         }
 
@@ -695,10 +909,22 @@
             let target = btnElement.getAttribute('data-open') || 'internal'; 
             if(!originalLink) return;
 
+            document.getElementById('directLinkInput').value = originalLink;
+
             if (target === 'external') {
-                window.open(originalLink, '_blank');
+                originalWindowOpen(originalLink, '_blank');
                 return; 
             }
+
+            updateStreamStatus('loading');
+            let qualityBadge = document.getElementById('streamQualityBadge');
+            qualityBadge.style.display = 'none';
+            qualityBadge.innerHTML = '📺 --';
+
+            currentZoom = 0.5;
+            updateZoom();
+            
+            document.getElementById('muteBtn').innerText = '🔊 الصوت';
 
             let iframe = document.getElementById('iframePlayer');
             let video = document.getElementById('videoPlayer');
@@ -707,7 +933,9 @@
             video.pause();
             video.removeAttribute('src');
             video.load();
-            if (window.hls) window.hls.destroy();
+            if (window.hls) {
+                try { window.hls.destroy(); } catch(e) {}
+            }
 
             let linkToPlay = originalLink;
             if (linkToPlay.endsWith('.ts')) {
@@ -718,16 +946,50 @@
                 activeLinkType = 'video';
                 iframe.style.display = 'none';
                 video.style.display = 'block';
+                video.muted = false; 
+                
                 if (Hls.isSupported() && linkToPlay.includes('.m3u8')) {
                     window.hls = new Hls();
                     window.hls.loadSource(linkToPlay);
                     window.hls.attachMedia(video);
-                    window.hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                        video.play().catch(e => {});
+                    
+                    window.hls.on(Hls.Events.LEVEL_SWITCHED, function(event, data) {
+                        let level = window.hls.levels[data.level];
+                        if(level && level.height) {
+                            qualityBadge.style.display = 'flex';
+                            qualityBadge.innerHTML = `📺 ${level.height}p`;
+                        }
                     });
+
+                    window.hls.on(Hls.Events.ERROR, function(event, data) {
+                        if (data.fatal) {
+                            updateStreamStatus('error');
+                        }
+                    });
+
+                    window.hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        let playPromise = video.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(e => {});
+                        }
+                    });
+                    
+                    let initPlay = video.play();
+                    if (initPlay !== undefined) {
+                        initPlay.catch(e => {}); 
+                    }
+                } else if (video.canPlayType('application/vnd.apple.mpegurl') && linkToPlay.includes('.m3u8')) {
+                    video.src = linkToPlay;
+                    let playPromise = video.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(e => {});
+                    }
                 } else {
                     video.src = linkToPlay;
-                    video.play().catch(e => {});
+                    let playPromise = video.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(e => {});
+                    }
                 }
             } else {
                 activeLinkType = 'iframe';
@@ -740,7 +1002,9 @@
             document.getElementById('externalVid').style.display = 'inline-block';
             document.getElementById('copyLinkBtn').style.display = 'inline-block';
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            btnElement.classList.add('active');
+            if(btnElement.id) {
+                btnElement.classList.add('active');
+            }
         }
 
         function closePlayer() {
@@ -751,7 +1015,11 @@
             video.pause();
             video.removeAttribute('src');
             video.style.display = 'none';
-            if (window.hls) window.hls.destroy();
+            if (window.hls) {
+                try { window.hls.destroy(); } catch(e) {}
+            }
+            updateStreamStatus('idle');
+            document.getElementById('streamQualityBadge').style.display = 'none';
             document.getElementById('closeVid').style.display = 'none';
             document.getElementById('externalVid').style.display = 'none';
             document.getElementById('copyLinkBtn').style.display = 'none';
@@ -760,12 +1028,20 @@
 
         function openExternal() {
             let activeBtn = document.querySelector('.tab-btn.active');
-            if (activeBtn) window.open(activeBtn.getAttribute('data-link'), '_blank');
+            if (activeBtn) originalWindowOpen(activeBtn.getAttribute('data-link'), '_blank');
+            else {
+                let directLink = document.getElementById('directLinkInput').value.trim();
+                if(directLink) originalWindowOpen(directLink, '_blank');
+            }
         }
 
         function copyCurrentLink() {
             let activeBtn = document.querySelector('.tab-btn.active');
             if (activeBtn) triggerCopy(activeBtn.getAttribute('data-link'), "تم النسخ!");
+            else {
+                let directLink = document.getElementById('directLinkInput').value.trim();
+                if(directLink) triggerCopy(directLink, "تم النسخ!");
+            }
         }
 
         function openModal() {
@@ -843,6 +1119,44 @@
             triggerCopy(content, "تم نسخ الكود بالكامل!");
         }
 
+        function exportToM3U() {
+            closeModal();
+            let m3uContent = "#EXTM3U\n";
+            document.querySelectorAll('#mainTabs .tab-btn:not(#autoFetchBtn)').forEach(btn => {
+                let name = btn.innerText.trim();
+                let link = btn.getAttribute('data-link');
+                if (link) {
+                    m3uContent += `#EXTINF:-1,${name}\n${link}\n`;
+                }
+            });
+
+            let blob = new Blob([m3uContent], { type: 'audio/x-mpegurl' });
+            let a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'playlist.m3u8';
+            a.click();
+        }
+
+        function exportSelectedToM3U() {
+            let selected = document.querySelectorAll('#mainTabs .tab-btn.selected-channel');
+            if (selected.length === 0) { alert("حدد قنوات الأول عشان تعملها ملف M3U8!"); return; }
+            
+            let m3uContent = "#EXTM3U\n";
+            selected.forEach(btn => {
+                let name = btn.innerText.trim();
+                let link = btn.getAttribute('data-link');
+                if (link) {
+                    m3uContent += `#EXTINF:-1,${name}\n${link}\n`;
+                }
+            });
+
+            let blob = new Blob([m3uContent], { type: 'audio/x-mpegurl' });
+            let a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'selected_playlist.m3u8';
+            a.click();
+        }
+
         function nextStream() {
             let tabs = Array.from(document.querySelectorAll('#mainTabs .tab-btn:not(#autoFetchBtn)'));
             if(tabs.length === 0) return;
@@ -864,5 +1178,38 @@
         }
 
         function toggleRotation() { document.querySelector('.video-wrapper').classList.toggle('rotated'); }
+
+        function toggleMute() {
+            let video = document.getElementById('videoPlayer');
+            let muteBtn = document.getElementById('muteBtn');
+            if (activeLinkType === 'video') {
+                video.muted = !video.muted;
+                muteBtn.innerText = video.muted ? '🔇 مكتوم' : '🔊 الصوت';
+            } else {
+                alert("زرار الصوت بيشتغل بس مع الروابط المباشرة (m3u8 أو mp4). المواقع الكاملة لازم تتحكم في صوتها من المشغل بتاعهم جوه الصفحة.");
+            }
+        }
+
+        function toggleFullScreen() {
+            let wrapper = document.querySelector('.video-wrapper');
+            if (!document.fullscreenElement) {
+                if (wrapper.requestFullscreen) {
+                    wrapper.requestFullscreen();
+                } else if (wrapper.webkitRequestFullscreen) { 
+                    wrapper.webkitRequestFullscreen();
+                } else if (wrapper.msRequestFullscreen) { 
+                    wrapper.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { 
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { 
+                    document.msExitFullscreen();
+                }
+            }
+        }
     </script>
+
 </body></html>
